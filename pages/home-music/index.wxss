@@ -1,0 +1,30 @@
+/* pages/home-music/index.wxss */
+page {
+  padding: 0 20rpx;
+}
+
+.van-search {
+  padding: 10px 0 !important;
+}
+
+.van-search__content {
+  background-color: #fff !important;
+}
+
+/* 轮播图样式 */
+.swiper {
+  border-radius: 20rpx;
+  /* 默认情况下，swiper 不会对超出部分的内容进行隐藏，所以需要手动设置为隐藏超出部分的内容 */
+  overflow: hidden;
+  /* 解决某些机型上无法正常显示 border-radius 效果的问题（某些手机系统上 webview（用来渲染这里类似于 html 的东西） 的 bug） */
+  transform: translateY(0);
+}
+
+.swiper-item {
+  /* 解决图片本身底部的经典 3px 问题的一种方案：给图片的父容器设置 display: flex; */
+  display: flex;
+}
+
+.swiper-item .swiper-image {
+  width: 100%;
+}
