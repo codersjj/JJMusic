@@ -1,0 +1,33 @@
+/* components/song-item-v1/index.wxss */
+.song-item {
+  display: flex;
+  align-items: center;
+  padding: 16rpx 0;
+}
+
+.image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 16rpx;
+}
+
+.content {
+  flex: 1;
+  margin-left: 20rpx;
+}
+
+.content .song-name {
+  font-size: 32rpx;
+  color: #555;
+}
+
+.content .artist-album {
+  margin-top: 16rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.arrow .icon {
+  width: 50rpx;
+  height: 50rpx;
+}
