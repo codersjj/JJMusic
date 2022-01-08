@@ -35,3 +35,8 @@
   </view>
 </view>
 
+<!-- 4. 热门歌单 -->
+<view class="hot-song-menu">
+  <song-menu-area></song-menu-area>
+</view>
+

@@ -1,0 +1,22 @@
+/* components/song-menu-area/index.wxss */
+.song-menu-list {
+  white-space: nowrap;
+  /* 可以使用相对定位进行微调（往左偏移 20rpx） */
+  position: relative;
+  left: -20rpx;
+}
+
+.song-menu-item {
+  display: inline-block;
+  margin-left: 20rpx;
+  width: 200rpx;
+  height: 200rpx;
+  background-color: skyblue;
+
+  /* 解决 scroll-view 中的 item 垂直方向可能出现的没有对齐的问题 */
+  vertical-align: top;
+}
+
+.song-menu-item:last-of-type {
+  margin-right: 20rpx;
+}
