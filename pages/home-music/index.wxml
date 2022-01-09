@@ -36,10 +36,6 @@
 </view>
 
 <!-- 4. 热门/推荐歌单 -->
-<view class="hot-song-menu">
-  <song-menu-area title="热门歌单" songMenus="{{hotSongMenus}}"></song-menu-area>
-</view>
-<view class="recommend-song-menu">
-  <song-menu-area title="推荐歌单" songMenus="{{recommendSongMenus}}"></song-menu-area>
-</view>
+<song-menu-area title="热门歌单" songMenus="{{hotSongMenus}}"></song-menu-area>
+<song-menu-area title="推荐歌单" songMenus="{{recommendSongMenus}}"></song-menu-area>
 
