@@ -15,7 +15,8 @@ Page({
 		hotSongMenus: [],
 		recommendSongMenus: [],
 		// 会进行共享的数据
-		recommendSongs: []
+		recommendSongs: [],
+		rankings: []
 	},
 
 	onLoad: function (options) {
@@ -31,6 +32,9 @@ Page({
 			const recommendSongs = res.tracks.slice(0, 6)
 			this.setData({ recommendSongs })
 		})
+		rankingStore.onState('newRanking', this.getNewRankingHandler)
+		rankingStore.onState('originRanking', this.getNewRankingHandler)
+		rankingStore.onState('upRanking', this.getNewRankingHandler)
 	},
 
 	// 网络请求，获取页面数据
@@ -64,7 +68,26 @@ Page({
 	},
 
 	onUnload: function () {
-
+		// 页面销毁时，取消对共享数据的监听
+		// 当然，这里因为是首页（音乐页面/视频页面），所以不会被销毁
+		// rankingStore.offState('newRanking', this.getNewRankingHandler)
 	},
+
+	getNewRankingHandler(res) {
+		if (Object.keys(res).length === 0) return
+		const {
+			name,
+			tracks: songList,
+			coverImgUrl
+		} = res
+		const top3SongList = songList.slice(0, 3)
+		const ranking = {
+			name,
+			songList: top3SongList,
+			coverImgUrl
+		}
+		const newRankings = [...this.data.rankings, ranking]
+		this.setData({ rankings: newRankings })		
+	}
 
 })
