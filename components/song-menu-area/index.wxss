@@ -11,9 +11,9 @@
 .song-menu-item {
   display: inline-block;
   margin-left: 20rpx;
-  width: 200rpx;
-  height: 200rpx;
-  background-color: skyblue;
+  width: 220rpx;
+  /* height: 200rpx;
+  background-color: skyblue; */
 
   /* 解决 scroll-view 中的 item 垂直方向可能出现的没有对齐的问题 */
   vertical-align: top;

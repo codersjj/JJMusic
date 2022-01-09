@@ -1,7 +1,9 @@
 <!--components/song-menu-area/index.wxml-->
-<area-header showRight="{{true}}"></area-header>
+<area-header title="{{title}}" showRight="{{true}}"></area-header>
 <scroll-view scroll-x class="song-menu-list">
-  <block wx:for="{{6}}" wx:key="*this">
-    <view class="song-menu-item"></view>
+  <block wx:for="{{songMenus}}" wx:key="id">
+    <view class="song-menu-item">
+      <song-menu-item item="{{item}}"></song-menu-item>
+    </view>
   </block>
 </scroll-view>

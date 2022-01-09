@@ -1,16 +1,12 @@
-// components/song-menu-area/index.js
+// components/song-menu-item/index.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    title: {
-      type: String,
-      value: '默认歌单'
-    },
-    songMenus: {
-      type: Array,
-      value: []
+    item: {
+      type: Object,
+      value: {}
     }
   },
 

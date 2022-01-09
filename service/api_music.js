@@ -11,3 +11,12 @@ export function getRankings(idx) {
     idx
   })
 }
+
+// cat -> category 种类
+export function getSongMenu(cat = '全部', limit = 6, offset = 0) {
+  return jjRequest.get('/top/playlist', {
+    cat,
+    limit,
+    offset
+  })
+}

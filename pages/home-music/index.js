@@ -1,7 +1,7 @@
 // pages/home-music/index.js
 import { rankingStore } from '../../store/index'
 
-import { getBanners } from '../../service/api_music'
+import { getBanners, getSongMenu } from '../../service/api_music'
 import queryRect from '../../utils/query_rect'
 import throttle from '../../utils/throttle'
 
@@ -12,6 +12,9 @@ Page({
 	data: {
 		banners: [],
 		swiperHeight: 0,
+		hotSongMenus: [],
+		recommendSongMenus: [],
+		// 会进行共享的数据
 		recommendSongs: []
 	},
 
@@ -34,6 +37,14 @@ Page({
 	getPageData: function() {
 		getBanners().then(res => {
 			this.setData({ banners: res.banners })
+		})
+
+		getSongMenu().then(res => {
+			this.setData({ hotSongMenus: res.playlists })
+		})
+
+		getSongMenu('华语').then(res => {
+			this.setData({ recommendSongMenus: res.playlists })
 		})
 	},
 
