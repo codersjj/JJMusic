@@ -4,13 +4,32 @@ import { getRankings } from "../service/api_music";
 
 const rankingStore = new HYEventStore({
   state: {
-    hotRanking: {}
+    newRanking: {}, // 新歌榜
+    hotRanking: {}, // 热歌榜
+    originRanking: {}, // 原创榜
+    upRanking: {} // 飙升榜
   },
   actions: {
     getRankingDataAction(ctx) {
-      getRankings(1).then(res => {
-        ctx.hotRanking = res.playlist
-      })
+      // 0: 新歌榜 1: 热歌榜 2: 原创榜 3: 飙升榜
+      for (let i = 0; i < 4; i++) {
+        getRankings(i).then(res => {
+          switch (i) {
+            case 0: 
+              ctx.newRanking = res.playlist
+              break;
+            case 1: 
+              ctx.hotRanking = res.playlist
+              break;
+            case 2: 
+              ctx.originRanking = res.playlist
+              break;
+            case 3: 
+              ctx.upRanking = res.playlist
+              break;
+          }
+        })
+      }
     }
   }
 })

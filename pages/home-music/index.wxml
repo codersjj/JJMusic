@@ -45,3 +45,7 @@
                 wx:if="{{recommendSongMenus.length > 0}}">
 </song-menu-area>
 
+<!-- 5. 巅峰榜 -->
+<view class="ranking-list">
+  <area-header title="巅峰榜"></area-header>
+</view>
