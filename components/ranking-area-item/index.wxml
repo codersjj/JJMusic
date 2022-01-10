@@ -1,0 +1,19 @@
+<!--components/ranking-area-item/index.wxml-->
+<wxs src="../../utils/format.wxs" module="format"></wxs>
+<view class="item">
+  <view class="content">
+    <view class="content-title">{{ item.name }}</view>
+    <view class="content-list">
+      <block wx:for="{{3}}" wx:for-item="i" wx:key="item">
+        <view class="content-list-item">
+          <text class="song-name">{{ i + 1 }}. {{ item.songList[i].name }}</text>
+          <text class="singer"> - {{ item.songList[i].ar[0].name }}</text>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class="album">
+    <image class="image" src="{{ item.coverImgUrl }}"></image>
+    <view class="play-count">{{ format.formatCount(item.playCount) }}</view>
+  </view>
+</view>

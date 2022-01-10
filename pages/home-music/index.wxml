@@ -46,6 +46,11 @@
 </song-menu-area>
 
 <!-- 5. 巅峰榜 -->
-<view class="ranking-list">
+<view class="ranking">
   <area-header title="巅峰榜"></area-header>
+  <view class="ranking-list">
+    <block wx:for="{{ rankings }}" wx:key="name">
+      <ranking-area-item item="{{ item }}"></ranking-area-item>
+    </block>
+  </view>
 </view>

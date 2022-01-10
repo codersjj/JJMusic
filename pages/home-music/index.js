@@ -79,13 +79,15 @@ Page({
 			const {
 				name,
 				tracks: songList,
-				coverImgUrl
+				coverImgUrl,
+				playCount
 			} = res
 			const top3SongList = songList.slice(0, 3)
 			const ranking = {
 				name,
 				songList: top3SongList,
-				coverImgUrl
+				coverImgUrl,
+				playCount
 			}
 			const newRankings = { ...this.data.rankings, [idx]: ranking }
 			this.setData({ rankings: newRankings })
