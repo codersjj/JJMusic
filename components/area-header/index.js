@@ -29,6 +29,9 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    handleRightClick: function() {
+      // 将当前组件中对应的点击事件发送出去
+      this.triggerEvent('click')
+    }
   }
 })
