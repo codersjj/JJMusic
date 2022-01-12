@@ -23,6 +23,12 @@
           "pathName": "pages/video-detail/index",
           "query": "id=14480854",
           "scene": null
+        },
+        {
+          "name": "detail-songs",
+          "pathName": "pages/detail-songs/index",
+          "query": "rankingName=hotRanking",
+          "scene": null
         }
       ]
     }
