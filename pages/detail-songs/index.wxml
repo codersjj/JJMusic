@@ -1,7 +1,12 @@
 <!--pages/detail-songs/index.wxml-->
-<area-header title="{{rankingInfo.name}}"></area-header>
+<block wx:if="{{ type === 'rank' }}">
+  <area-header title="{{songsInfo.name}}"></area-header>
+</block>
+<block wx:elif="{{ type === 'menu' }}">
+  <view>歌单的数据</view>
+</block>
 <view class="song-list">
-  <block wx:for="{{rankingInfo.tracks}}" wx:key="id">
+  <block wx:for="{{songsInfo.tracks}}" wx:key="id">
     <song-item-v2 item="{{item}}" index="{{index + 1}}"></song-item-v2>
   </block>
 </view>

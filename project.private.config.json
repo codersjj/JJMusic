@@ -29,6 +29,12 @@
           "pathName": "pages/detail-songs/index",
           "query": "rankingName=hotRanking",
           "scene": null
+        },
+        {
+          "name": "detail-song-menu",
+          "pathName": "pages/detail-songs/index",
+          "query": "id=6954660951&type=menu",
+          "scene": null
         }
       ]
     }
