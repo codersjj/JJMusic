@@ -3,7 +3,7 @@
   <area-header title="{{songsInfo.name}}"></area-header>
 </block>
 <block wx:elif="{{ type === 'menu' }}">
-  <view>歌单的数据</view>
+  <songs-detail-header songsInfo="{{songsInfo}}"></songs-detail-header>
 </block>
 <view class="song-list">
   <block wx:for="{{songsInfo.tracks}}" wx:key="id">

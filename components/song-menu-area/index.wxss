@@ -3,7 +3,7 @@
   /* 100vw 获取100%视口的宽度 */
   width: 100vw;
   white-space: nowrap;
-  /* 可以使用相对定位进行微调（往左偏移 20rpx） */
+  /* 可以使用相对定位进行微调（往左偏移 20rpx），消除之前在 page 上设置的 padding 的影响 */
   position: relative;
   left: -20rpx;
 }
