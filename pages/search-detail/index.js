@@ -41,18 +41,11 @@ Page({
     // 3. 判断关键字为空字符串时的处理逻辑
     if (!searchValue.length) {
       this.setData({ suggestSongs: [] })
+      debounceGetSearchSuggest.cancel()
       return
     }
     // 4. 根据输入的内容进行搜索
     debounceGetSearchSuggest(searchValue).then(res => {
-      console.log('拿到结果，searchValue:', searchValue)
-      console.log('拿到结果，this.data.searchValue:', this.data.searchValue)
-      // 在执行当前这一回调函数时，如果此时搜索内容为空，直接 return（注意，这里不能使用 searchValue 变量，
-      // 否则会形成闭包，拿到的是发送网络请求时的搜索内容，而不是当前的搜索内容）
-      if (!this.data.searchValue.length) {
-        console.log('searchValue 没有值')
-        return
-      }
       let suggestSongs = res.result.allMatch
       if (!suggestSongs) {
         suggestSongs = []
