@@ -22,10 +22,10 @@
   <view wx:if="{{!getSearchResponse}}"></view>
   <view class="title" wx:elif="{{!suggestSongs.length}}">搜索 "{{searchValue}}"</view>
   <view class="list">
-    <block wx:for="{{suggestSongs}}" wx:key="keyword">
+    <block wx:for="{{suggestSongsNodes}}" wx:key="keyword">
       <view class="item">
         <image class="icon" mode="widthFix" src="/assets/images/icons/search_icon.png"></image>
-        <text class="text">{{item.keyword}}</text>
+        <rich-text nodes="{{item}}"></rich-text>
       </view>
     </block>
   </view>
