@@ -1,5 +1,8 @@
 // pages/search-detail/index.js
 import { getSearchHot, getSearchSuggest } from '../../service/api_search'
+import debounce from '../../utils/debounce'
+
+const debounceGetSearchSuggest = debounce(getSearchSuggest, 300)
 
 Page({
 
@@ -41,7 +44,7 @@ Page({
       return
     }
     // 4. 根据输入的内容进行搜索
-    getSearchSuggest(searchValue).then(res => {
+    debounceGetSearchSuggest(searchValue).then(res => {
       let suggestSongs = res.result.allMatch
       if (!suggestSongs) {
         suggestSongs = []
