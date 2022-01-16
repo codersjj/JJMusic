@@ -1,2 +1,16 @@
 <!--pages/search-detail/index.wxml-->
-<text>pages/search-detail/index.wxml</text>
+<!-- 1. 搜索框 -->
+<van-search
+  background="#fafafa"
+  shape="round"
+/>
+
+<!-- 2. 热门搜索 -->
+<view class="hot">
+  <area-header title="热门搜索"></area-header>
+  <view class="keyword-list">
+    <block wx:for="{{ hotKeywords }}" wx:key="first">
+      <view class="tag">{{item.first}}</view>
+    </block>
+  </view>
+</view>
