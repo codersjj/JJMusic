@@ -1,5 +1,5 @@
 // pages/search-detail/index.js
-import { getSearchHot } from '../../service/api_search'
+import { getSearchHot, getSearchSuggest } from '../../service/api_search'
 
 Page({
 
@@ -7,7 +7,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    hotKeywords: []
+    hotKeywords: [],
+    suggestSongs: [],
+    searchValue: '',
+    getSearchResponse: false
   },
 
   /**
@@ -19,8 +22,31 @@ Page({
   },
 
   getPageData() {
+    // 网络请求
     getSearchHot().then(res => {
       this.setData({ hotKeywords: res.result.hots })
+    })
+  },
+
+  // 事件处理
+  handleSearchChange(event) {
+    this.setData({getSearchResponse: false})
+    // 1. 获取输入的内容
+    const searchValue = event.detail
+    // 2. 保存输入的内容
+    this.setData({searchValue})
+    // 3. 判断关键字为空字符串时的处理逻辑
+    if (!searchValue.length) {
+      this.setData({ suggestSongs: [] })
+      return
+    }
+    // 4. 根据输入的内容进行搜索
+    getSearchSuggest(searchValue).then(res => {
+      let suggestSongs = res.result.allMatch
+      if (!suggestSongs) {
+        suggestSongs = []
+      }
+      this.setData({ suggestSongs, getSearchResponse: true })
     })
   }
 

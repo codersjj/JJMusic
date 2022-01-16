@@ -24,3 +24,31 @@ page {
 .hot .tag:first-of-type {
   color: #26ce8a;
 }
+
+/* 搜索建议 */
+.suggest {
+  padding: 10rpx;
+}
+
+.suggest .title {
+  color: #26ce8a;
+  font-size: 34rpx;
+  /* font-weight: 700; */
+}
+
+.suggest .item {
+  display: flex;
+  align-items: center;
+  margin-top: 16rpx;
+}
+
+.suggest .item .icon {
+  width: 66rpx;
+  /* 指定高度，以防止图片加载时出现拉扯感，抖动感。 */
+  height: 66rpx;
+  margin-left: -10rpx;
+}
+
+.suggest .item .text {
+  font-size: 28rpx;
+}
